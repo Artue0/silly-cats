@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website or something like that</title>
+    <link rel="shortcut icon" type="x-icon" href="sillycat2.png">
+    <style>
+      body {
+        margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+      }
+      .content-container {
+          text-align: center;
+      }
+      .centered-text {
+            line-height: 100vh;
+      }
+
+      
+      .tv-container {
+        position: relative;
+        overflow: hidden;
+
+      }
+
+      .tv-image {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .tv-video {
+        position: absolute;
+        top: 10px;
+        right: -100px;
+        z-index: -1;
+      }
+
+      .image-button {
+            background: none;
+            border: none;
+            padding: 0;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            
+        }
+
+  </style>
+</head>
+<body style="background-color: black;">
+    <div>
+      <h1 style="color: white;">This is a silly website</h1>
+      <hr>
+      <h2 style="color: white;">Silly cats are cool!</h2>
+      <br>
+      <a href="https://youtu.be/dQw4w9WgXcQ?si=_WX_GVIqMEOcZ_C9" target="_blank" title="Click this!" style="color: white;">Click for a silly cat :3</a>
+      <br>
+      <a href="music.html" target="_self" title="click here for silly music" style="color: white;">Silly music >_<</a><br>
+      <a href="images.html" target="_self" title="click here to go to the silly galery" style="color: white;">Silly gallery :3</a><br>
+      <a href="lore.html" target="_self" title="click here to go to the lore section" style="color: white;">Lore :<</a><br><br>
+      <a href="maxwell.html"><video autoplay muted loop src="MewMew.mp4" width="400" style="color: white;"></video></a>
+      <p style="color: white;">More comming soon! (maybe idk)</p>
+
+      <script>
+        setTimeout(function() {
+          var randomDelay = Math.floor(Math.random() * (100000 - 30000 + 1) + 30000);
+          var newUrl = 'jumpscare.html';
+          window.location.href = newUrl;
+        }, randomDelay);
+      </script>
+
+      <hr>
+      <h1 style="color: white;">Silly cat TV</h1>
+      <div class="tv-container">
+        <div class="tv-image"><img src="tv/tv.png"></div>
+        <div class="tv-video"><video autoplay loop muted id="videoPlayer"></div>
+          <div>
+            <button class="image-button" onclick="togglePlayPause()">
+              <img id="playPauseImage" src="tv/play.png" alt="Play">
+            </button>
+    
+            <button class="image-button" onclick="changeVideo()">
+              <img src="tv/next.png" alt="Change Video">
+            </button>
+    
+            <button class="image-button" onclick="toggleMute()">
+              <img id="muteUnmuteImage" src="tv/unmute.png" alt="Unmute">
+            </button>
+          </div>
+      </div>
+      </div>
+      <script>
+        var video = document.getElementById('videoPlayer');
+        var playPauseImage = document.getElementById('playPauseImage');
+        var muteUnmuteImage = document.getElementById('muteUnmuteImage');
+        var videos = [
+          'tv/a1.mp4',
+          'tv/a2.mp4',
+          'tv/v1.mp4',
+          'tv/v2.mp4',
+          'tv/v3.mp4',
+          'tv/v4.mp4',
+          'tv/v5.mp4',
+          'tv/v6.mp4'
+        ];
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+                playPauseImage.src = 'tv/pause.png';
+            } else {
+                video.pause();
+                playPauseImage.src = 'tv/play.png';
+            }
+        }
+        
+        var lastVideoIndex = -1;
+
+        function changeVideo() {
+          var randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * videos.length);
+            } while (randomIndex === lastVideoIndex);
+
+            lastVideoIndex = randomIndex;
+            video.src = videos[randomIndex];
+            video.style.width = 990 + 'px';
+            video.style.height = 440 + 'px';
+            video.load();
+            video.play();
+        }
+
+        function toggleMute() {
+            video.muted = !video.muted;
+            muteUnmuteImage.src = video.muted ? 'tv/mute.png' : 'tv/unmute.png';
+        }
+        
+        changeVideo()
+      </script>
+      </div>
+</body>
+
+</html>
