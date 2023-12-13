@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website or something like that</title>
-    <link rel="shortcut icon" type="x-icon" href="sillycat2.png">
+    <link rel="shortcut icon" type="x-icon" href="images/sillycat2.png">
     <style>
       body {
         margin: 0;
@@ -15,14 +15,7 @@
             height: 100vh;
             text-align: center;
       }
-      .content-container {
-          text-align: center;
-      }
-      .centered-text {
-            line-height: 100vh;
-      }
 
-      
       .tv-container {
         position: relative;
         overflow: hidden;
@@ -45,13 +38,12 @@
       }
 
       .image-button {
-            background: none;
-            border: none;
-            padding: 0;
-            position: relative;
-            width: 100px;
-            height: 100px;
-            
+        background: none;
+        border: none;
+        padding: 0;
+        position: relative;
+        width: 100px;
+        height: 100px;  
         }
 
   </style>
@@ -67,16 +59,21 @@
       <a href="music.html" target="_self" title="click here for silly music" style="color: white;">Silly music >_<</a><br>
       <a href="images.html" target="_self" title="click here to go to the silly galery" style="color: white;">Silly gallery :3</a><br>
       <a href="lore.html" target="_self" title="click here to go to the lore section" style="color: white;">Lore :<</a><br><br>
-      <a href="maxwell.html"><video autoplay muted loop src="MewMew.mp4" width="400" style="color: white;"></video></a>
+      <a href="maxwell.html"><video autoplay muted loop src="videos/MewMew.mp4" width="400" style="color: white;"></video></a>
       <p style="color: white;">More comming soon! (maybe idk)</p>
 
       <script>
         setTimeout(function() {
-          var randomDelay = Math.floor(Math.random() * (100000 - 30000 + 1) + 30000);
+          var randomDelay = Math.floor(Math.random() * (100000 - 30000 + 1)) + 30000;
           var newUrl = 'jumpscare.html';
           window.location.href = newUrl;
-        }, randomDelay);
+        }, getRandomDelay(30000, 100000));
+      
+        function getRandomDelay(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
       </script>
+      
 
       <hr>
       <h1 style="color: white;">Silly cat TV</h1>
@@ -85,15 +82,15 @@
         <div class="tv-video"><video autoplay loop muted id="videoPlayer"></div>
           <div>
             <button class="image-button" onclick="togglePlayPause()">
-              <img id="playPauseImage" src="tv/play.png" alt="Play">
+              <img id="playPauseImage" src="tv/play.png">
             </button>
     
             <button class="image-button" onclick="changeVideo()">
-              <img src="tv/next.png" alt="Change Video">
+              <img src="tv/next.png">
             </button>
     
             <button class="image-button" onclick="toggleMute()">
-              <img id="muteUnmuteImage" src="tv/unmute.png" alt="Unmute">
+              <img id="muteUnmuteImage" src="tv/mute.png">
             </button>
           </div>
       </div>
@@ -122,10 +119,10 @@
         function togglePlayPause() {
             if (video.paused) {
                 video.play();
-                playPauseImage.src = 'tv/pause.png';
+                playPauseImage.src = 'tv/play.png';
             } else {
                 video.pause();
-                playPauseImage.src = 'tv/play.png';
+                playPauseImage.src = 'tv/pause.png';
             }
         }
         
