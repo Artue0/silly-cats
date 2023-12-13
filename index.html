@@ -10,10 +10,10 @@
     <style>
       body {
         margin: 0;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
       }
 
       .tv-container {
@@ -67,7 +67,7 @@
           var randomDelay = Math.floor(Math.random() * (100000 - 30000 + 1)) + 30000;
           var newUrl = 'jumpscare.html';
           window.location.href = newUrl;
-        }, getRandomDelay(30000, 100000));
+        }, getRandomDelay(50000, 200000));
       
         function getRandomDelay(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
